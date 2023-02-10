@@ -52,6 +52,24 @@ function onMapClick(e) {
     }
     
     map.on('click', onMapClick);
+
+var popup = L.popup();
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+var circle2 = L.circle([51.507, -0.13], {
+    color: 'green',
+    fillColor: '#2CA702CFF',
+    fillOpacity: 0.5,
+    radius: 100
+}).addTo(map);
+circle2.bindPopup("I am London.");
+
+
 // Metro station markers
 
 
